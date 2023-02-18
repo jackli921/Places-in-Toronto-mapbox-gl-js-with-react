@@ -1,44 +1,59 @@
-import React, { useRef, useEffect, useState } from 'react';
-import mapboxgl from 'mapbox-gl'; 
+import React, { useRef, useEffect, useState } from "react";
+import mapboxgl from "mapbox-gl";
 
-import 'mapbox-gl/dist/mapbox-gl.css';
-import Map, {Marker} from 'react-map-gl'
-
+import "mapbox-gl/dist/mapbox-gl.css";
+import Map, { MapProvider, Marker, Popup } from "react-map-gl";
+import data from "./data.jsx";
+import Markers from "./Markers.jsx";
 
 export default function App() {
-  mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2xpOTIxIiwiYSI6ImNsZTh4MXo1czAzY28zdnBhbGcyZ3Nqa2kifQ.XJu3d6iTqkELeKfFPBu3xQ';
+  const MAPBOX_TOKEN =
+    "pk.eyJ1IjoiamFja2xpOTIxIiwiYSI6ImNsZTh4MXo1czAzY28zdnBhbGcyZ3Nqa2kifQ.XJu3d6iTqkELeKfFPBu3xQ";
 
-  const [lng, setLng] = useState(-79.347015);
-  const [lat, setLat] = useState(43.651070);
-  const [zoom, setZoom] = useState(9);
+  const [viewState, setViewState] = useState({
+    longitude: -79.34015,
+    latitude: 43.65107,
+    zoom: 11,
+  });
 
-  // const [viewState, setViewState] = useState({
-  //   latitude:37.8,
-  //   longtitude:-122.4,
-  //   zoom:14
-  // })
+  const [selectedPlace, setSelectedPlace] = useState(null)
 
   return (
-    <div className="App">
-      <h1>Fun in Toronto</h1>
+    <div>
+      <h1>Places in Toronto</h1>
       <Map
-        mapboxAccessToken="pk.eyJ1IjoiamFja2xpOTIxIiwiYSI6ImNsZTh4MXo1czAzY28zdnBhbGcyZ3Nqa2kifQ.XJu3d6iTqkELeKfFPBu3xQ"
-        
-        style={
-          {
-            width:"100vw",
-            height:"100vh",
-          }}
+        {...viewState}
+        onMove={(evt) => setViewState(evt.viewState)}
+        style={{ width: "100%", height: "90vh" }}
+        mapStyle="mapbox://styles/mapbox/streets-v9"
+        mapboxAccessToken={MAPBOX_TOKEN}
+        className="map"
+      >
+        {data.map((place, index) => {
           
-        initialViewState={{
-            longitude:lng,
-            latitude:lat,
-            zoom:12
-          }}
-        
-          mapStyle="mapbox://styles/mapbox/streets-v12"
-      />
+          const { long, lat, name } = place;
+          return (
+            <>
+              <Marker
+                key={`marker-${index}`}
+                longitude={long}
+                latitude={lat}
+                onClick={()=>{setSelectedPlace(place)}}
+              >
+              
+              </Marker>
+              {selectedPlace && (
+                <Popup
+                  longitude={selectedPlace.long}
+                  latitude={selectedPlace.lat}
+                >
+                  <p>{selectedPlace.name}</p>
+                </Popup>
+              )}
+            </>
+          );
+        })}
+      </Map>
     </div>
   );
-
-}
+};
