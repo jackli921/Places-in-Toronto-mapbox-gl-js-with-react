@@ -5,7 +5,7 @@
 }
 
 .map{
-    min-width: 300px;
+    min-width: 400px;
     min-height: 500px;
 }
 
@@ -19,7 +19,8 @@
 }
 
 .search-bar{
-    width: 300px;
+    width: 80vw;
+    max-width: 600px;
     height: 3em;
     margin: 1em;
     border-radius: 10px;
@@ -30,7 +31,6 @@
 .sidebar{
     position: fixed;
     top: 80px;
-    width: 240px;
     width: 100%;
     background-color:whitesmoke;
     z-index: 1;
@@ -40,6 +40,11 @@
 .result-text{
     color: black;
     padding: 1rem;
+}
+
+.result-text-card:hover{
+    background-color: orange !important; 
+    cursor: pointer;
 }
 
 .menu-icon{
@@ -53,7 +58,7 @@
 
 .user-input-container{
     position: absolute;
-    max-width: 400px;
+    max-width: 800px;
     width: 100%;
     border-radius: 10px;
     display: flex;

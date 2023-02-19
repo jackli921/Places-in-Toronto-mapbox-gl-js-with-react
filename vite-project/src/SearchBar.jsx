@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef} from 'react'
 
 export default function SearchBar(props){
     
-    const {userInput, setUserInput, markerData, setMarkerData, filteredData, setFilteredData} = props
+    const {userInput, setUserInput, markerData, setMarkerData, filteredData, setFilteredData, setIsSidebarVisible} = props
     const inputRef = useRef(null);
     
     //create a state to store initial data
@@ -17,8 +17,9 @@ export default function SearchBar(props){
         //update the filtered array state with the variable above
 
     function handleChange(e){
-        
+        setIsSidebarVisible(true)
         setUserInput(e.target.value);
+        
         if(userInput.length > 0 ){
             const filteredDataArr = markerData.filter((place) => {
                 place.lowercaseName = place.name.toLowerCase();
@@ -29,6 +30,7 @@ export default function SearchBar(props){
             setFilteredData(filteredDataArr);   
             
         }
+
         inputRef.current.focus;
     }
 
@@ -46,7 +48,7 @@ export default function SearchBar(props){
             placeholder='Search a place in Toronto'
             className='search-bar'
             ref={inputRef} 
-            type="text" 
+            type="search" 
             value={userInput} 
             onChange={(e) => handleChange(e)} 
             />

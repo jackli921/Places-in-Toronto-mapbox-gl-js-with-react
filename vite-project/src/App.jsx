@@ -22,10 +22,39 @@ export default function App() {
   const [filteredData, setFilteredData] = useState(data);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true)
 
+  function updateSearch(){
+      if (userInput.length > 0) {
+        const lowercaseUserInput = userInput.toLowerCase();
+        const filteredDataArr = markerData.filter((place) => {
+          place.lowercaseName = place.name.toLowerCase();
+          return (
+            place.lowercaseName.indexOf(lowercaseUserInput) >= 0
+          );
+        });
+        setFilteredData(filteredDataArr);
+      }
+
+
+  }
+
+
+  useEffect(() => {
+    updateSearch();
+  }, [userInput]);
+
+  useEffect(()=>{
+    if (filteredData.length === 1) {
+      setViewState({
+        longitude: filteredData[0].long,
+        latitude: filteredData[0].lat,
+        zoom: 14,
+      });
+    }
+  },[filteredData])
+  
   return (
     <div className="container">
       <div className="user-input-container">
-       
         <div className="menu-icon">
           <i
             className="fa-solid fa-bars"
@@ -42,16 +71,19 @@ export default function App() {
           setMarkerData={setMarkerData}
           filteredData={filteredData}
           setFilteredData={setFilteredData}
+          setIsSidebarVisible={setIsSidebarVisible}
         />
-
       </div>
 
       {isSidebarVisible && (
         <div className="sidebar">
-          <SearchResult filteredData={filteredData}
-                        userInput={userInput}
-                        setUserInput={setUserInput}
-                        setIsSidebarVisible={setIsSidebarVisible} />
+          <SearchResult
+            filteredData={filteredData}
+            userInput={userInput}
+            setUserInput={setUserInput}
+            setIsSidebarVisible={setIsSidebarVisible}
+            updateSearch={updateSearch}
+          />
         </div>
       )}
 
