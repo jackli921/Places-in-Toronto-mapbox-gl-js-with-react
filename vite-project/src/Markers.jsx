@@ -4,13 +4,14 @@ import mapboxgl from "mapbox-gl";
 import Map, { MapProvider, Marker, Popup } from "react-map-gl";
 
 export default function Markers(props) {
-  const [selectedPlace, setSelectedPlace] = useState(null);
-  
+  const [selectedPlace, setSelectedPlace] = useState(null);    
+  const {markerData, filteredData, setFilteredData} = props 
+
   return (
     <>
-      {data &&
-        data.length > 0 &&
-        data.map((place, index) => {
+      {filteredData &&
+        filteredData.length > 0 &&
+        filteredData.map((place, index) => {
           const { long, lat, name } = place;
           return (
             <React.Fragment key={index}>
@@ -29,6 +30,7 @@ export default function Markers(props) {
                   latitude={selectedPlace.lat}
                   onClose={() => {
                     setSelectedPlace(null);
+                    
                   }}
                   offset={40}
                 >

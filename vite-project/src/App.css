@@ -2,3 +2,34 @@
     min-width: 300px;
     min-height: 500px;
 }
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+.search-bar{
+    width: 200px;
+    height: 2em;
+    margin: 1em;
+    border-radius: 10px;
+}
+
+.sidebar{
+    top: 100px;
+    left: 20px;
+    width: 240px;
+    height: 800px;
+    position: fixed;
+    background-color: #232323;
+    color: #e9e9e9;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.result-text{
+    color: white;
+}

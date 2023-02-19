@@ -5,8 +5,8 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import Map, { MapProvider, Marker, Popup } from "react-map-gl";
 import data from "./data.jsx";
 import Markers from './Markers.jsx'
-import Sidebar from './Sidebar.jsx'
-
+import SearchBar from './SearchBar.jsx'
+import SearchResult from "./SearchResult.jsx";
 export default function App() {
   const MAPBOX_TOKEN =
     "pk.eyJ1IjoiamFja2xpOTIxIiwiYSI6ImNsZTh4MXo1czAzY28zdnBhbGcyZ3Nqa2kifQ.XJu3d6iTqkELeKfFPBu3xQ";
@@ -17,10 +17,25 @@ export default function App() {
     zoom: 11,
   });
 
+  const [markerData, setMarkerData] = useState(data)
+  const [userInput, setUserInput] = useState("");
+  const [filteredData, setFilteredData] = useState(data);
   return (
-    <div>
+    <div className="container">
       <h1>Places in Toronto</h1>
-      <Sidebar />
+      <div className="sidebar">
+        <h3>Places</h3>
+        <SearchBar
+          userInput={userInput}
+          setUserInput={setUserInput}
+          markerData={markerData}
+          setMarkerData={setMarkerData}
+          filteredData={filteredData}
+          setFilteredData={setFilteredData}
+        />
+        <SearchResult filteredData={filteredData} />
+      </div>
+
       <Map
         {...viewState}
         onMove={(evt) => setViewState(evt.viewState)}
@@ -29,8 +44,11 @@ export default function App() {
         mapboxAccessToken={MAPBOX_TOKEN}
         className="map"
       >
-        <Markers />
-
+        <Markers
+          markerData={markerData}
+          filteredData={filteredData}
+          setFilteredData={setFilteredData}
+        />
       </Map>
     </div>
   );
