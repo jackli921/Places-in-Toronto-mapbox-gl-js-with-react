@@ -18,12 +18,13 @@ export default function SearchBar(props){
 
     function handleChange(e){
         
-        const inputString = e.target.value.toLowerCase()
-        setUserInput(inputString);
+        setUserInput(e.target.value);
         if(userInput.length > 0 ){
             const filteredDataArr = markerData.filter((place) => {
                 place.lowercaseName = place.name.toLowerCase();
-                return place.lowercaseName.indexOf(inputString) >= 0;
+                return (
+                  place.lowercaseName.indexOf(userInput.toLowerCase()) >= 0
+                );
             });
             setFilteredData(filteredDataArr);   
             
@@ -39,13 +40,16 @@ export default function SearchBar(props){
         }
     },[userInput])
 
+
     return (
         <input 
+            placeholder='Search a place in Toronto'
             className='search-bar'
             ref={inputRef} 
             type="text" 
             value={userInput} 
-            onChange={(e) => handleChange(e) } />
+            onChange={(e) => handleChange(e)} 
+            />
 
     );
 }

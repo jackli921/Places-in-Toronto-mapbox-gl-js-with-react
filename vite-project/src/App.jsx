@@ -20,11 +20,21 @@ export default function App() {
   const [markerData, setMarkerData] = useState(data)
   const [userInput, setUserInput] = useState("");
   const [filteredData, setFilteredData] = useState(data);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true)
+
   return (
     <div className="container">
-      <h1>Places in Toronto</h1>
-      <div className="sidebar">
-        <h3>Places</h3>
+      <div className="user-input-container">
+       
+        <div className="menu-icon">
+          <i
+            className="fa-solid fa-bars"
+            onClick={() => {
+              setIsSidebarVisible(!isSidebarVisible);
+            }}
+          ></i>
+        </div>
+
         <SearchBar
           userInput={userInput}
           setUserInput={setUserInput}
@@ -33,13 +43,22 @@ export default function App() {
           filteredData={filteredData}
           setFilteredData={setFilteredData}
         />
-        <SearchResult filteredData={filteredData} />
+
       </div>
+
+      {isSidebarVisible && (
+        <div className="sidebar">
+          <SearchResult filteredData={filteredData}
+                        userInput={userInput}
+                        setUserInput={setUserInput}
+                        setIsSidebarVisible={setIsSidebarVisible} />
+        </div>
+      )}
 
       <Map
         {...viewState}
         onMove={(evt) => setViewState(evt.viewState)}
-        style={{ width: "100%", height: "90vh" }}
+        style={{ width: "100%", height: "100vh" }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         mapboxAccessToken={MAPBOX_TOKEN}
         className="map"
