@@ -31,20 +31,24 @@
 .sidebar{
     position: fixed;
     top: 80px;
-    width: 100%;
+    width: 90%;
+    margin:0 1rem;
     background-color:whitesmoke;
     z-index: 1;
+    border-radius: 10px;
     font-size: 1.2rem;
 }
 
 .result-text{
     color: black;
     padding: 1rem;
+    font-size: 1rem;
 }
 
-.result-text-card:hover{
-    background-color: orange !important; 
+.result-text:hover{
+    color: orange !important; 
     cursor: pointer;
+    font-weight: bolder;
 }
 
 .menu-icon{
@@ -59,11 +63,52 @@
 .user-input-container{
     position: absolute;
     max-width: 800px;
-    width: 100%;
     border-radius: 10px;
     display: flex;
     align-items: center;
     z-index: 1;
     left: 50%;
     transform: translate(-50%);
+}
+
+.markers{
+    cursor: pointer;
+}
+
+
+hr{
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media(min-width:600px){
+    .sidebar{
+        width:250px;
+        margin-left: 1em;
+        border-radius: 10px;
+        
+    }
+    .result-text{
+        text-align: left;
+        font-size: 1em;
+        font-size: 1.1rem;
+    }
+
+}
+
+@media(min-width:800px){
+    .sidebar{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        width:50%;
+        max-width:600px;
+  
+    }
+    .result-text{
+        text-align: center;
+        font-size: 1em;
+    }
+
+
 }

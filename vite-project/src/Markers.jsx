@@ -16,6 +16,7 @@ export default function Markers(props) {
           return (
             <React.Fragment key={index}>
               <Marker
+                
                 key={index}
                 longitude={long}
                 latitude={lat}
@@ -30,15 +31,13 @@ export default function Markers(props) {
                   latitude={selectedPlace.lat}
                   onClose={() => {
                     setSelectedPlace(null);
-                    
                   }}
                   offset={40}
                 >
                   <p>{selectedPlace.name}</p>
                 </Popup>
-           
               )}
-            </ React.Fragment>
+            </React.Fragment>
           );
         })}
     </>
