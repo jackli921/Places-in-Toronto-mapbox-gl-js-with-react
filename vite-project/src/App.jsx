@@ -6,7 +6,7 @@ import Map, { MapProvider, Marker, Popup } from "react-map-gl";
 import data from "./data.jsx";
 import Markers from './Markers.jsx'
 import SearchBar from './SearchBar.jsx'
-import SearchResult from "./SearchResult.jsx";
+import SearchResult from "./SearchResult.tsx";
 export default function App() {
   const MAPBOX_TOKEN =
     "pk.eyJ1IjoiamFja2xpOTIxIiwiYSI6ImNsZTh4MXo1czAzY28zdnBhbGcyZ3Nqa2kifQ.XJu3d6iTqkELeKfFPBu3xQ";
