@@ -14,7 +14,6 @@ interface propTypes {
   updateSearch: Function;
 };
 
-
 export default function SearchResult(props: propTypes){
 
   const {
@@ -25,17 +24,13 @@ export default function SearchResult(props: propTypes){
     updateSearch,
   } = props;
 
-
-
   function handleClick(e:React.MouseEvent<HTMLDivElement>) {
     const target = e.target as HTMLElement
     if(target && typeof target.innerText === 'string'){
         setUserInput(target.innerText);
     }
-
     setIsSidebarVisible(false);
   }
-
 
   const results = filteredData.map((place: placeType, index:number) => {
   
