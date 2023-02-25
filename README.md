@@ -6,7 +6,6 @@
 ## Places in Toronto 
 A responsive, interactive map of tourist destinations in Toronto built using the Mapbox API & React-map-gl.
 
-
 ## Overview 
 This web app was made for two reasons:
 1. to explore what's possible with Mapbox API service
@@ -20,28 +19,14 @@ This web app was made for two reasons:
 4. A full-screen size map
 5. Pins with clickable pop-ups at five tourist destination in Toronto    
 
-
 ## Installation
 To run the project locally: 
 
 1. Clone this project locally
 2. Open your terminal, bash, or in your command line
-3. Run 
-```
-cd vite-project
-```
-to go into the project directory
-
-4. Run 
-```
-npm install
-```
-to install dependencies
-
-5. Run
-```
-npm run dev
-```
+3. Run `cd vite-project` to go into the project directory
+4. Run `npm install`to install dependencies
+5. Run `npm run dev`
 to host the project locally
 
 ## Dependencies
