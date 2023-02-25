@@ -24,25 +24,11 @@ This web app was made for two reasons:
 ## Installation
 To run the project locally: 
 
+To run the project locally: 
 1. Clone this project locally
 2. Open your terminal, bash, or in your command line
-3. Run 
-```
-cd vite-project
-```
-to go into the project directory
-
-4. Run 
-```
-npm install
-```
-to install dependencies
-
-5. Run
-```
-npm run dev
-```
-to host the project locally
+3. Run `npm install`to install dependencies
+4. Run `npm run dev`to host the project locally
 
 ## Dependencies
 - React
