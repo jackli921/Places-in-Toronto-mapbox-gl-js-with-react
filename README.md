@@ -1,6 +1,6 @@
 
 <div align="center">
-<img src="./vite-project//images/logo.png">
+<img src="./images/logo.png">
 </div>
 
 ## Places in Toronto 
@@ -40,7 +40,7 @@ to host the project locally
 
 ## Demo
 <div  align="center">
-<img src="./vite-project/images/demo.gif" height=600px>
+<img src="./images/demo.gif" height=600px>
 </div>
  
 ## Improvements
