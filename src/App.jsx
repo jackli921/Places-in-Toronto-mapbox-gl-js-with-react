@@ -90,7 +90,7 @@ export default function App() {
       <Map
         {...viewState}
         onMove={(evt) => setViewState(evt.viewState)}
-        style={{ width: "100%", height: "100vh" }}
+        style={{ width: "100%", height: "95%" }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         mapboxAccessToken={MAPBOX_TOKEN}
         className="map"
@@ -101,6 +101,45 @@ export default function App() {
           setFilteredData={setFilteredData}
         />
       </Map>
+
+        <ul class="footer__social-links">
+          <li class="footer__social-link-item">
+            <a href="https://www.linkedin.com/in/jackli0707/">
+              <img
+                src="/images/linkedin.svg"
+                title="Link to Linkedin Profile"
+                class="footer__social-image"
+                alt="Linkedin"
+              />
+            </a>
+          </li>
+
+          <li class="footer__social-link-item">
+            <a
+              href="https://github.com/jackli921"
+              title="Link to Github Profile"
+            >
+              <img
+                src="/images/github.svg"
+                class="footer__social-image"
+                alt="Github"
+              />
+            </a>
+          </li>
+
+          <li class="footer__social-link-item">
+            <a
+              href="https://twitter.com/li_jack0707"
+              title="Link to Twitter Profile"
+            >
+              <img
+                src="/images/twitter.svg"
+                class="footer__social-image"
+                alt="Twitter"
+              />
+            </a>
+          </li>
+        </ul>
     </div>
   );
 };

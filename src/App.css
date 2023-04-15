@@ -16,6 +16,9 @@
     text-align: center;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .search-bar{
@@ -111,4 +114,17 @@ hr{
     }
 
 
+}
+
+.footer__social-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 0.2em;
+}
+
+
+.footer__social-image {
+    height: 3rem;
 }

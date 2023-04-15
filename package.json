@@ -1,11 +1,11 @@
 {
-  "name": "vite-project",
+  "name": "use-mapbox-gl-js-with-react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build tsc --jsx=react",
+    "build": "vite build && tsc",
     "preview": "vite preview"
   },
   "dependencies": {
