@@ -7,7 +7,7 @@
 A responsive, interactive map of tourist destinations in Toronto built using the Mapbox API & React-map-gl.
 
 ## Overview 
-This web app was made for two reasons:
+This web app was made for three reasons:
 1. to explore what's possible with Mapbox API service
 2. to fulfill the tier-2 solo project pre-requisite of Chingu's 6-week group development voyage
 3. to learn and apply TypeScript through progressive conversion of jsx to tsx   
